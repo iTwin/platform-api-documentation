@@ -17,7 +17,7 @@ Access Token – a token which contains a string that can be used to make authen
 
 Authorization Server – the authorization server validates the identity of the user and then issues access tokens to the app to grant access to protected resources on the user&#39;s behalf.
 
-Client – An application which is attempting to access protected resources on behalf of the resource owner (such as the end user). The client can be hosted on a server, desktop, or mobile device.
+Client – an application which is attempting to access protected resources on behalf of the resource owner (such as the end user). The client can be hosted on a server, desktop, or mobile device.
 
 Client ID – a unique public identifier for an app.
 
