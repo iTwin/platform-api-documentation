@@ -49,34 +49,35 @@ Most Bentley APIs support the OAuth 2.0 Authorization Code Flow. This flow provi
 These are the steps that the flow executes:
 
 1. Redirect the end user&#39;s (resource owner&#39;s) browser to the authorization server endpoint
-2. Authenticate the end user and ask for consent
-3. Redirect the end user to your application&#39;s callback URL with an authorization code
-4. Exchange the authorization code for an access token
-5. Use the access token to call the API on behalf of the end user
+1. Authenticate the end user and ask for consent
+1. Redirect the end user to your application&#39;s callback URL with an authorization code
+1. Exchange the authorization code for an access token
+1. Use the access token to call the API on behalf of the end user
 
-<div class="mermaid">
-sequenceDiagram
-    participant ro as Resource Owner
-    participant app as Application
-    participant as as Authorization Server
-    participant api as iTwin API
+    <div class="mermaid">
+    sequenceDiagram
+        participant ro as Resource Owner
+        participant app as Application
+        participant as as Authorization Server
+        participant api as iTwin API
 
-    ro->>+app: Connect to application
-    app->>+as: Request authorization code
-    as->>ro: Redirect to login and consent
-    ro->>as: Sign in and consent
-    as->>-app: Authorization code
-    app->>+as: Exchange authorization code for an access_token
-    as->>as: Validate client_id, client_secret, scope and redirect_uri
-    as->>-app: Granted access token
-    app->>-ro: Signed in
+        ro->>+app: Connect to application
+        app->>+as: Request authorization code
+        as->>ro: Redirect to login and consent
+        ro->>as: Sign in and consent
+        as->>-app: Authorization code
+        app->>+as: Exchange authorization code for an access_token
+        as->>as: Validate client_id, client_secret, scope and redirect_uri
+        as->>-app: Granted access token
+        app->>-ro: Signed in
 
-    ro->>+app: Perform action
-    app->>+api: API request with the access token
-    api->>-app: API response
-    app->>-ro: Render content
+        ro->>+app: Perform action
+        app->>+api: API request with the access token
+        api->>-app: API response
+        app->>-ro: Render content
 
-</div>
+    </div>
+
 
 The following steps outline how to implement the authorization code flow in your application:
 
@@ -94,15 +95,15 @@ The following steps outline how to implement the authorization code flow in your
     - scope=&lt;insert\_scopes\_of\_API\_here&gt;: Include the scopes for the API, which are the permissions to request the end users consent for. For each API, you can find the required scopes in the additional API specific documentation. Please note that you will have to request an additional scope &quot;offline\_access&quot; to receive a refresh token.
     - state=&lt;insert\_client\_state\_here&gt;: (optional) An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter SHOULD be used for preventing cross-site request forgery.
 
-2. Authenticate the end user and ask for consent
+1. Authenticate the end user and ask for consent
 
     This step will be performed by Bentley&#39;s authorization server and does not require anything to be implemented in your application. Redirect the end user to your application&#39;s callback URL with an authorization code
 
-3. Redirect the end user to your application&#39;s callback URL with an authorization code
+1. Redirect the end user to your application&#39;s callback URL with an authorization code
 
     After the end user provides consent for your application, Bentley&#39;s authorization server will redirect the end user with an authorization code to the redirect URL registered with your application.
 
-4. Exchange the authorization code for an access token
+1. Exchange the authorization code for an access token
 
     After your application has received the authorization code you can exchange it for an access token. The client must authenticate using the HTTP Basic method and provide the url-encoded clientId and the clientSecret (&lt;insert\_your\_url\_encoded\_client\_id\_here&gt;:&lt;insert\_your\_url\_encoded\_client\_secret\_here&gt;) encoded with BASE64 in the HTTP Authorization header.
 
@@ -116,7 +117,7 @@ The following steps outline how to implement the authorization code flow in your
 
     You will then receive the OAuth access token in the server response access_token field. Note that the expires_in field in the response represents the validity period of the access token in seconds and it is equal to 3600s.
 
-5. Use the access token to call the API on behalf of the end user
+1. Use the access token to call the API on behalf of the end user
 
 You can now use the access token to call the API as long as it is not expired. Add the provided token to the Authorization header of your API request, using _Bearer_ scheme
 
@@ -148,11 +149,11 @@ In order to mitigate issues outlined in [previous section](#authorizesinglepagea
 These are the steps for executing the Authorization Code flow with PKCE. Note these steps are very similar to the standard Authorization Code flow with the following additions:
 
 1. Application generates a cryptographically random code_verifier and from this generates a code_challenge
-2. Redirect the end user&#39;s (resource owner&#39;s) browser to the authorization server endpoint
-3. Authenticate the end user and ask for consent
-4. The authorization server stores the code_challenge and redirects the end user to your application&#39;s callback URL with an authorization code
-5. Exchange the authorization code and the code_verifier for an access token
-6. Use the access token to call the API on behalf of the end user
+1. Redirect the end user&#39;s (resource owner&#39;s) browser to the authorization server endpoint
+1. Authenticate the end user and ask for consent
+1. The authorization server stores the code_challenge and redirects the end user to your application&#39;s callback URL with an authorization code
+1. Exchange the authorization code and the code_verifier for an access token
+1. Use the access token to call the API on behalf of the end user
 
 <div class="mermaid">
 sequenceDiagram
@@ -179,13 +180,14 @@ sequenceDiagram
 
 </div>
 
+
 The following steps outline how to implement the authorization code flow in your application:
 
 1. Application generates a cryptographically random code\_verifier and from this generates a code\_challenge
 
     This step needs to be completed within your application. There are several libraries available for generating the code\_verifier and code\_challenge.
 
-2. Redirect the end user&#39;s browser to the authorization endpoint
+1. Redirect the end user&#39;s browser to the authorization endpoint
 
     In order to initiate the end user&#39;s authorization, you must redirect the end user&#39;s browser to Bentley&#39;s authorize endpoint. This will provide a login screen to the end user for authentication. After successful authentication, the consent screen is displayed, if the user has not given the consent yet.
 
@@ -201,15 +203,15 @@ The following steps outline how to implement the authorization code flow in your
     - scope=&lt;insert\_scopes\_of\_API\_here&gt;: Include the scopes for the API, which are the permissions to request the end users consent for. For each API, you can find the required scopes in the additional API specific documentation. Please note that you will have to request an additional scope &quot;offline_access&quot; to receive a refresh token.
     - state=&lt;insert\_client\_state\_here&gt;: (optional) An opaque value used by the client to maintain state between the request and callback. The authorization server includes this value when redirecting the user-agent back to the client. The parameter SHOULD be used for preventing cross-site request forgery.
 
-3. Authenticate the end user and ask for consent
+1. Authenticate the end user and ask for consent
 
     This step will be performed by Bentley&#39;s authorization server and does not require anything to be implemented in your application. Redirect the end user to your application&#39;s callback URL with an authorization code
 
-4. The authorization server stores the code_challenge and redirects the end user to your application&#39;s callback URL with an authorization code
+1. The authorization server stores the code_challenge and redirects the end user to your application&#39;s callback URL with an authorization code
 
     After the end user provides consent for your application, Bentley&#39;s authorization server will store the code_challenge and redirect the end user with an authorization code to the redirect URL registered with your application.
 
-5. Exchange the authorization code for an access token
+1. Exchange the authorization code for an access token
 
     After your application has received the authorization code you can exchange it for an access token. The client must authenticate using the HTTP Basic method and provide the clientId (there is no clientSecret as this is a public client) (&lt;insert\_your\_client\_id\_here&gt;:) encoded with BASE64 in the HTTP Authorization header.
 
@@ -224,7 +226,7 @@ The following steps outline how to implement the authorization code flow in your
 
     You will then receive the OAuth access token in the server response. Note that the expires_in field in the response represents the validity period of the access token in seconds and it is equal to 3600s.
 
-6. Use the access token to call the API on behalf of the end user
+1. Use the access token to call the API on behalf of the end user
 
     You can now use the access token to call the API as long as it is not expired. Add the provided token to the authorization header of your API request.
 
@@ -301,6 +303,7 @@ sequenceDiagram
 
 </div>
 
+
 The following steps outline how to implement the authorization code flow in your application:
 
 1. Redirect the web server to the authorization server endpoint with Client ID and Client Secret
@@ -314,11 +317,11 @@ The following steps outline how to implement the authorization code flow in your
     - client\_secret=&lt;insert\_your\_client\_secret\_here&gt;: Provide the client secret that was provided when you registered your app. The client secret must be url-encoded before being sent.
     - scope=&lt;insert\_scopes\_of\_API\_here&gt;: Include the scopes for the API, which are the permissions to request the end users consent for. For each API, you can find the required scopes in the additional API specific documentation. Please note that you will have to request an additional scope &quot;offline\_access&quot; to receive a refresh token.
 
-2. Authorization server validates the Client ID and Client Secret and returns Access Token
+1. Authorization server validates the Client ID and Client Secret and returns Access Token
 
     This step will be performed by Bentley&#39;s authorization server and does not require anything to be implemented in your application. A successful response will include an access token.
 
-3. App uses the access token to call the API
+1. App uses the access token to call the API
 
     You can now use the access token to call the API as long as it is not expired. Add the provided token to the Authorization header of your API request, using _Bearer_ scheme
 
