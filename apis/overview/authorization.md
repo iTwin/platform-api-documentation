@@ -54,30 +54,29 @@ These are the steps that the flow executes:
 1. Exchange the authorization code for an access token
 1. Use the access token to call the API on behalf of the end user
 
-    <div class="mermaid">
-    sequenceDiagram
-        participant ro as Resource Owner
-        participant app as Application
-        participant as as Authorization Server
-        participant api as iTwin API
+<div class="mermaid">
+sequenceDiagram
+    participant ro as Resource Owner
+    participant app as Application
+    participant as as Authorization Server
+    participant api as iTwin API
 
-        ro->>+app: Connect to application
-        app->>+as: Request authorization code
-        as->>ro: Redirect to login and consent
-        ro->>as: Sign in and consent
-        as->>-app: Authorization code
-        app->>+as: Exchange authorization code for an access_token
-        as->>as: Validate client_id, client_secret, scope and redirect_uri
-        as->>-app: Granted access token
-        app->>-ro: Signed in
+    ro->>+app: Connect to application
+    app->>+as: Request authorization code
+    as->>ro: Redirect to login and consent
+    ro->>as: Sign in and consent
+    as->>-app: Authorization code
+    app->>+as: Exchange authorization code for an access_token
+    as->>as: Validate client_id, client_secret, scope and redirect_uri
+    as->>-app: Granted access token
+    app->>-ro: Signed in
 
-        ro->>+app: Perform action
-        app->>+api: API request with the access token
-        api->>-app: API response
-        app->>-ro: Render content
+    ro->>+app: Perform action
+    app->>+api: API request with the access token
+    api->>-app: API response
+    app->>-ro: Render content
 
-    </div>
-
+</div>
 
 The following steps outline how to implement the authorization code flow in your application:
 
@@ -144,7 +143,7 @@ Native and single-page applications are public clients without a dedicated backe
 
 ### Authorization Code Flow with Proof Key for Code Exchange (PKCE)
 
-In order to mitigate issues outlined in [previous section](#authorizesinglepageapplicationsspaanddesktopmobileapplicationsnative), OAuth 2.0 provides an option for Proof Key for Code Exchange (PKCE) by OAuth Public Clients (see OAuth 2.0 [RFC 7636](https://tools.ietf.org/html/rfc7636)). PKCE allows the calling application to dynamically generate a random, one -time key called a &quot;code verifier&quot;. Additionally, the calling app creates a transform of the &quot;code verifier&quot; called the &quot;code challenge&quot; and sends it to the authorization server when obtaining an authorization code. The authorization code obtained is then sent to the token endpoint with the &quot;code verifier &quot;and the server compares it with the previously received request code so that it can perform the proof of the &quot;code verifier&quot; by the client application. This provides a mitigation as the &quot;code verifier&quot; would be unknown to the attacker and cannot be intercepted as it is sent over TLS.
+In order to mitigate issues outlined in [previous section](#authorize-single-page-applications-spa-and-desktopmobile-applications-native), OAuth 2.0 provides an option for Proof Key for Code Exchange (PKCE) by OAuth Public Clients (see OAuth 2.0 [RFC 7636](https://tools.ietf.org/html/rfc7636)). PKCE allows the calling application to dynamically generate a random, one -time key called a &quot;code verifier&quot;. Additionally, the calling app creates a transform of the &quot;code verifier&quot; called the &quot;code challenge&quot; and sends it to the authorization server when obtaining an authorization code. The authorization code obtained is then sent to the token endpoint with the &quot;code verifier &quot;and the server compares it with the previously received request code so that it can perform the proof of the &quot;code verifier&quot; by the client application. This provides a mitigation as the &quot;code verifier&quot; would be unknown to the attacker and cannot be intercepted as it is sent over TLS.
 
 These are the steps for executing the Authorization Code flow with PKCE. Note these steps are very similar to the standard Authorization Code flow with the following additions:
 
@@ -179,7 +178,6 @@ sequenceDiagram
     app->>-ro: Render content
 
 </div>
-
 
 The following steps outline how to implement the authorization code flow in your application:
 
@@ -285,8 +283,8 @@ The Client Credential flow provides the ability for a web service (confidential 
 These are the steps that the Client Credential flow executes:
 
 1. Redirect the web server to the authorization server endpoint with Client ID and Client Secret
-2. Authorization server validates the Client ID and Client Secret and returns Access Token
-3. Client uses the access token to call the API
+1. Authorization server validates the Client ID and Client Secret and returns Access Token
+1. Client uses the access token to call the API
 
 <div class="mermaid">
 sequenceDiagram
@@ -302,7 +300,6 @@ sequenceDiagram
     api->>-app: API response
 
 </div>
-
 
 The following steps outline how to implement the authorization code flow in your application:
 
