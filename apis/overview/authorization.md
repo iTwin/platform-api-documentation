@@ -96,7 +96,7 @@ The following steps outline how to implement the authorization code flow in your
 
 1. Authenticate the end user and ask for consent
 
-    This step will be performed by Bentley&#39;s authorization server and does not require anything to be implemented in your application. Redirect the end user to your application&#39;s callback URL with an authorization code
+    This step will be performed by Bentley&#39;s authorization server and does not require anything to be implemented in your application.
 
 1. Redirect the end user to your application&#39;s callback URL with an authorization code
 
@@ -114,7 +114,7 @@ The following steps outline how to implement the authorization code flow in your
     - code=&lt;authorization\_code&gt;: Provide your one-time use authorization code that you received in step 3.
     - redirect\_uri=&lt;insert\_redirect\_uri\_here&gt;: This is the callback URL that is registered for your application in order to receive the authorization code. The URL must also match the URL that you have provided in the authorization request (see step 1).
 
-    You will then receive the OAuth access token in the server response access_token field. Note that the expires_in field in the response represents the validity period of the access token in seconds and it is equal to 3600s.
+    You will then receive the OAuth access token in the server response access\_token field. Note that the expires\_in field in the response represents the validity period of the access token in seconds and it is equal to 3600s.
 
 1. Use the access token to call the API on behalf of the end user
 
@@ -147,7 +147,7 @@ In order to mitigate issues outlined in [previous section](#authorize-single-pag
 
 These are the steps for executing the Authorization Code flow with PKCE. Note these steps are very similar to the standard Authorization Code flow with the following additions:
 
-1. Application generates a cryptographically random code_verifier and from this generates a code_challenge
+1. Application generates a cryptographically random code\_verifier and from this generates a code\_challenge
 1. Redirect the end user&#39;s (resource owner&#39;s) browser to the authorization server endpoint
 1. Authenticate the end user and ask for consent
 1. The authorization server stores the code_challenge and redirects the end user to your application&#39;s callback URL with an authorization code
@@ -250,7 +250,7 @@ When the offline\_access scope is passed, the response from the authorization se
 
 When the access token expires, you can use the refresh token in order to obtain a new access token. This way it is not required to request a new authentication/consent from the end user. In addition to the refresh token your client must authenticate using the HTTP Basic method again.
 
-In order to exchange the refresh_token for and access token the following parameters are used in the request payload using the &quot;application/x-www-form-urlencoded&quot; format:
+In order to exchange the refresh_token for an access token the following parameters are used in the request payload using the &quot;application/x-www-form-urlencoded&quot; format:
 
 - grant\_type=refresh\_token: This indicates for the token endpoint to refresh an access token for this request. So, it&#39;ll expect a refresh token as part of the parameters.
 - refresh\_token=&lt;insert\_your\_refresh\_token\_received\_in\_step\_4\_here&gt;: Provide your one-time token in order to refresh your access token without having to go through the authorization process again.
