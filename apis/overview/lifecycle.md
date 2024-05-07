@@ -5,7 +5,7 @@
 
 ## API Versions
 
-All APIs are versioned and the version number is embedded in the **Accept** header as shown below.
+Our team versions all APIs and embeds the version number in the **Accept** header as shown below.
 
 ```HTTP
 GET https://api.bentley.com/users/me HTTP/1.1
@@ -14,7 +14,7 @@ Accept: application/vnd.bentley.itwin-platform.v1+json
 
 ```
 
-We are continually improving our APIs. The API version number will be incremented when we introduce a breaking change. A breaking change is a non-backward compatible change in the API that can cause applications using the API to no longer function as expected. The following are examples of changes that are not backward compatible:
+We are continually improving our APIs and increment the API version number when we introduce a breaking change. A breaking change is a non-backward compatible change in the API that can cause applications using the API to no longer function as expected. The following are examples of changes that are not backward compatible:
 
 - Changing the URI of the resource
 - Changing the method used to access a resource
@@ -27,35 +27,35 @@ The following changes are backward compatible:
 - Adding new optional request parameters
 - Adding new fields to the response
 
-As much as possible, we will provide notice of a breaking change well before its release. When the new version of an API is released, we provide one year for you to update your applications. The exact amount of notice we provide may vary depending on why the breaking change is necessary.
+As much as possible, we will notify you of a breaking change well before its release. When we release a new version of an API, we provide one year for you to update your applications. The exact amount of notice we provide may vary depending on why the breaking change is necessary.
 
 ## API Release Status
 
-API product releases have a well-defined lifecycle. The release status determines the level of support offered for the API.
+API product releases have a well-defined lifecycle. The release status determines the level of support we offer for the API.
 
 ![api-lifecycle-diagram](/images/API-Lifecycle-complete.jpg)
 
 ### Technical Preview
 
-New APIs, new features, and new operations may be released as a technical preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists our team in making sure we are providing the right solution and the functionality works as it should.
+We may release new APIs, features, and operations as a technical preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists our team in making sure we are providing the right solutions and expected functionality.
 
-APIs in Tech Preview are free to use during the time they are in preview. These APIs should not be used in Production. They are available for testing to gather feedback before releasing for General Availability.
+You may use APIs in Tech Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
 
-**Note**: Items in Tech Preview can be removed from the ecosystem at any time. In which case, they will no longer supported.
+**Note**: We reserve the right to remove items in Tech Preview from the ecosystem at any time. In which case, we will no longer support them.
 
 ### General Availability
 
-APIs in general availability are available for production and ready to use. Full support is provided. APIs may remain in General Availability for an unlimited period however, substantial changes to the structure and function of the API will require a change in version. In these cases, when the new version reaches GA, the older version will be moved to a Deprecated status and you are encouraged to move to the new version.
+APIs in general availability are available for production ready use. We provide full support for these APIs. APIs can remain in General Availability for an unlimited period however, substantial changes to the structure and function of the API can require a change in version. In these cases, when we release the new API version to GA, we transition the older version to a Deprecated status and you are encouraged to move to the new version.
 
 ### Deprecated
 
-An API is deprecated when it has been replaced by a different API or updated to a new version. If you are using the API for your solutions, you are encouraged to update to the new API to take advantage of the new capabilities. Limited support is given on the deprecated API however, upgrading to a new version is fully supported during this time. This does not include new development on a deprecated API. New customers must develop on the currently released version.
+We deprecate an API when we replace it by a different API or update it to a new version. If you are using the deprecated API for your solutions, you are encouraged to update to the new API to take advantage of the new capabilities. We provide limited support to the deprecated API however, we fully support upgrading to a new version during this time. This policy excludes new development on a deprecated API. New customers must use the currently released version.
 
-Deprecated APIs will remain available and will be supported for a maximum of one year.
+We keep deprecated APIs available and supported for a maximum of one year.
 
 ### End Of Support
 
-When an API is deprecated, it remains available for one year, allowing time for you to upgrade. After this time, it is considered at End of Support and will be removed from the iTwin Platform ecosystem.
+When an API is deprecated, we keep it available for one year, allowing time for you to upgrade. After this time, we consider it at End of Support and remove it from the iTwin Platform ecosystem.
 
 ## Support Services
 
@@ -85,4 +85,4 @@ Breaking changes result in a deprecation plan for the affected API. The followin
 
 As much as possible, we will provide notice of a breaking change well before its release. When the new version of an API is released, we provide one year for you to update your applications. The exact amount of notice we provide may vary depending on why the breaking change is necessary. The table below provides insight into our current versions, and if deprecation plans are in place, the anticipated date of deprecation.
 
-[insert Support Timeline tables, future]
+[insert Support Timeline tables, future] -->
