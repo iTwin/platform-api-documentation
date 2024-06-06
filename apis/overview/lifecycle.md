@@ -1,9 +1,9 @@
 <!-- Copyright (c) Bentley Systems, Incorporated. All rights reserved.            -->
 <!-- See LICENSE in the project root for license terms and full copyright notice. -->
 
-# API Versioning and Release Lifecycle
+# API versioning and release lifecycle
 
-## API Versions
+## API versions
 
 Our team versions all APIs and embeds the version number in the **Accept** header as shown below.
 
@@ -29,15 +29,15 @@ The following changes are backward compatible:
 
 As much as possible, we will notify you of a breaking change well before its release. When we release a new version of an API, we provide one year for you to update your applications. The exact amount of notice we provide may vary depending on why the breaking change is necessary.
 
-## API Release Status
+## API release status
 
 API product releases have a well-defined lifecycle. The release status determines the level of support we offer for the API.
 
 ![api-lifecycle-diagram](/images/API-Lifecycle-complete.jpg)
 
-### Technical Preview
+### Tech Preview
 
-We may release new APIs, features, and operations as a technical preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists our team in making sure we are providing the right solutions and expected functionality.
+We may release new APIs, features, and operations as a Tech Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists our team in making sure we are providing the right solutions and expected functionality.
 
 You may use APIs in Tech Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
 
@@ -45,7 +45,7 @@ You may use APIs in Tech Preview for free while they are in preview. Do not use 
 
 ### General Availability
 
-APIs in general availability are available for production ready use. We provide full support for these APIs. APIs can remain in General Availability for an unlimited period however, substantial changes to the structure and function of the API can require a change in version. In these cases, when we release the new API version to GA, we transition the older version to a Deprecated status and you are encouraged to move to the new version.
+APIs in General Availability are available for production ready use. We provide full support for these APIs. APIs can remain in General Availability for an unlimited period however, substantial changes to the structure and function of the API can require a change in version. In these cases, when we release the new API version to GA, we transition the older version to a Deprecated status and you are encouraged to move to the new version.
 
 ### Deprecated
 
