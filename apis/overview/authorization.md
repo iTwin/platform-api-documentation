@@ -46,7 +46,7 @@ Web apps are written in a server-side framework and run on a server where the so
 
 Most Bentley APIs support the OAuth 2.0 Authorization Code Flow. This flow provides the ability for a resource owner (owner of the data to access) to authorize applications to access their personal data on their behalf. Your application can use this flow including all built-in features like customer login and consent handling in order to get the authorization by the resource owner.
 
-To understand how this flow works, please see the [authorization code flow](/tutorials/authorize-webapp/#user-authorization-code-flow) section of the [authorize a web application](/tutorials/authorize-webapp/) tutorial. We recommend following the full tutorial to understand the API calls involved in obtaining authorization.
+To understand how this flow works, please see the [authorization code flow](/tutorials/authorize-webapp/#user-authorization-code-flow) section of the [authorize a web application](/tutorials/authorize-webapp/) tutorial. We recommend following the full tutorial to understand the steps involved in obtaining authorization.
 
 ## Authorizing single-page applications (SPA) and desktop/mobile applications (native)
 
@@ -61,7 +61,7 @@ In order to mitigate these security risks, OAuth 2.0 provides an option for Proo
 
 The authorization code obtained is then sent to the token endpoint with the &quot;code verifier &quot;and the server compares it with the previously received &quot;code challenge&quot; so that it can perform the proof of the &quot;code verifier&quot; by the client application. This provides a mitigation as the &quot;code verifier&quot; would be unknown to the attacker and cannot be intercepted as it is sent over TLS.
 
-To understand how this flow works, please see the [authorization code flow](/tutorials/authorize-native/#user-authorization-code-flow) section of either the [authorize a single-page application](/tutorials/authorize-spa/) or [authorize a native application](/tutorials/authorize-native/) tutorial. We recommend following the full tutorials to understand the API calls involved in obtaining authorization.
+To understand how this flow works, please see the [authorization code flow](/tutorials/authorize-native/#user-authorization-code-flow) section of either the [authorize a single-page application](/tutorials/authorize-spa/) or [authorize a native application](/tutorials/authorize-native/) tutorial. We recommend following the full tutorials to understand the steps involved in obtaining authorization.
 
 ## Using refresh tokens
 
@@ -88,7 +88,7 @@ The service app type does not represent any user or organization and does not ha
 
 The Client Credential flow provides the ability for a web service (confidential client) to use it&#39;s own credentials, instead of impersonating a user, to authenticate when calling a web service. Permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there is no user involved in the authentication.
 
-To understand how this flow works, please see the [client credentials flow](/tutorials/authorize-service/#client-credential-flow) section of the [authorize a service application](/tutorials/authorize-service/) tutorial. We recommend following the full tutorial to understand the API calls involved in obtaining authorization.
+To understand how this flow works, please see the [client credentials flow](/tutorials/authorize-service/#client-credential-flow) section of the [authorize a service application](/tutorials/authorize-service/) tutorial. We recommend following the full tutorial to understand the steps involved in obtaining authorization.
 
 ## Error responses
 
