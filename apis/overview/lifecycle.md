@@ -5,7 +5,7 @@
 
 ## API versions
 
-Our team versions all APIs and embeds the version number in the **Accept** header as shown below.
+We version all APIs and embeds the version number in the **Accept** header as shown below.
 
 ```HTTP
 GET https://api.bentley.com/users/me HTTP/1.1
@@ -37,7 +37,7 @@ API product releases have a well-defined lifecycle. The release status determine
 
 ### Tech Preview
 
-We may release new APIs, features, and operations as a Tech Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists our team in making sure we are providing the right solutions and expected functionality.
+We may release new APIs, features, and operations as a Tech Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists us in making sure we are providing the right solutions and expected functionality.
 
 You may use APIs in Tech Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
 
