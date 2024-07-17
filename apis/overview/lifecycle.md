@@ -1,20 +1,19 @@
 <!-- Copyright (c) Bentley Systems, Incorporated. All rights reserved.            -->
 <!-- See LICENSE in the project root for license terms and full copyright notice. -->
 
-# API release lifecycle
+# API versioning and release lifecycle
 
 ## API versions
 
-All APIs are versioned and the version number is embedded in the **Accept** header. Sample request:
+We version all APIs and embeds the version number in the **Accept** header as shown below.
 
-``` HTTP
+```HTTP
 GET https://api.bentley.com/users/me HTTP/1.1
 Authorization: Bearer JWT_TOKEN
 Accept: application/vnd.bentley.itwin-platform.v1+json
-
 ```
 
-We are continually improving our APIs. The API version number will be incremented when we introduce a breaking change that is not backwards compatible. The following are examples of changes that are not backward compatible:
+We are continually improving our APIs and increment the API version number when we introduce a breaking change. A breaking change is a non-backward compatible change in the API that can cause applications using the API to no longer function as expected. The following are examples of changes that are not backward compatible:
 
 - Changing the URI of the resource
 - Changing the method used to access a resource
@@ -27,33 +26,44 @@ The following changes are backward compatible:
 - Adding new optional request parameters
 - Adding new fields to the response
 
+As much as possible, we will notify you of a breaking change well before its release. When we release a new version of an API, we provide one year for you to update your applications. The exact amount of notice we provide may vary depending on why the breaking change is necessary.
+
 ## API release status
 
-API product releases have a well-defined lifecycle. The release status determines the level of support as described below.
+API product releases have a well-defined lifecycle. The release status determines the level of support we offer for the API.
 
-| API release status   | Description                                                                                                                                                                                                                                                                                                                                              | Support              |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| Technology Preview   | New functionality is sometimes released early as a technology preview or beta version. Technology Previews are for evaluation only and are not intended for production work.                                                                                                                                                                             | Limited Support      |
-| General Availability | An active commercial release for production work.                                                                                                                                                                                                                                                                                                        | Full Support         |
-| Deprecated           | When a new API version has been released the previous version will be deprecated. Deprecated API versions will remain active in production for six months and developers should move to the new API version during that time period. New applications cannot use deprecated APIs. After six months a deprecated API version will move to End of Support. | Limited Support      |
-| End of Support       | An API version that has been decommissioned and is no longer available in production.                                                                                                                                                                                                                                                                    | Support Discontinued |
+![api-lifecycle-diagram](/images/API-Lifecycle-complete.jpg)
 
-## Support services
+### Tech Preview
 
-### Full Support
+We may release new APIs, features, and operations as a Tech Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists us in making sure we are providing the right solutions and expected functionality.
 
-- Bentley technical support
-- Community support
-- Regular maintenance updates
-- Regular enhancements with new functionality
-- Security updates
+You may use APIs in Tech Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
 
-### Limited Support
+**Note**: We reserve the right to remove items in Tech Preview from the ecosystem at any time. In which case, we will no longer support them.
 
-- Community support
-- Maintenance updates at Bentley's discretion
-- No enhancements or new functionality
+### General Availability
 
-### Support Discontinued
+APIs in General Availability are available for production ready use. We provide full support for these APIs. APIs can remain in General Availability for an unlimited period however, substantial changes to the structure and function of the API can require a change in version. In these cases, when we release the new API version to GA, we transition the older version to a Deprecated status and you are encouraged to move to the new version.
 
-- Upgrade to the latest API version
+### Deprecated
+
+We deprecate an API when we replace it by a different API or update it to a new version. If you are using the deprecated API for your solutions, you are encouraged to update to the new API to take advantage of the new capabilities. We provide limited support to the deprecated API however, we fully support upgrading to a new version during this time. This policy excludes new development on a deprecated API. New customers must use the currently released version.
+
+We keep deprecated APIs available and supported for a maximum of one year.
+
+### End Of Support
+
+When an API is deprecated, we keep it available for one year, allowing time for you to upgrade. After this time, we consider it at End of Support and remove it from the iTwin Platform ecosystem.
+
+## Support Services
+
+| **Technical Preview** | **General Availability**         | **Deprecated**                             | **End Of Support**                |
+| --------------------- | -------------------------------- | ------------------------------------------ | --------------------------------- |
+| **Limited Support**   | **Full Support**                 | **Limited Support**                        | **Upgrade Only**                  |
+| GitHub community      | Bentley support                  | Bentley support (for one year)             | Upgrade to the latest API version |
+| Stack Overflow        | GitHub community                 | Github community                           |                                   |
+| Security updates      | Stack Overflow                   | Security updates                           |                                   |
+| New functionality     | Security updates                 | Maintenance updates (Bentley's discretion) |                                   |
+| Bug fixes             | Maintenance updates              | No enhancements or new functionality       |                                   |
+|                       | New functionality - Non breaking |                                            |                                   |
