@@ -11,7 +11,6 @@ We version all APIs and embeds the version number in the **Accept** header as sh
 GET https://api.bentley.com/users/me HTTP/1.1
 Authorization: Bearer JWT_TOKEN
 Accept: application/vnd.bentley.itwin-platform.v1+json
-
 ```
 
 We are continually improving our APIs and increment the API version number when we introduce a breaking change. A breaking change is a non-backward compatible change in the API that can cause applications using the API to no longer function as expected. The following are examples of changes that are not backward compatible:
@@ -68,21 +67,3 @@ When an API is deprecated, we keep it available for one year, allowing time for 
 | New functionality     | Security updates                 | Maintenance updates (Bentley's discretion) |                                   |
 | Bug fixes             | Maintenance updates              | No enhancements or new functionality       |                                   |
 |                       | New functionality - Non breaking |                                            |                                   |
-
-<!-- ## Deprecation Guidelines
-
-As with any software, APIs evolve to provide enhanced capabilities and a better experience for our developers and community. The result of this evolution is that APIs and components may change or be removed. While we strive to avoid breaking changes, there are cases where this is unavoidable. Our team uses the following guidelines to ensure you have the latest information and can adjust accordingly.
-
-**What constitutes a breaking change or a deprecation plan?**
-
-Breaking changes result in a deprecation plan for the affected API. The following descriptions explain what results in a breaking change.
-
-**Breaking Change** – A breaking change is a non-backward compatible change in the API that can cause applications using the API to no longer function as expected. This may include a substantive change to the API, such as a function formatting change, or removing a property from an existing response. Adding new properties or operations in a forward-compatible way does not result in a breaking change. For example, adding a new endpoint or properties to an existing operation.
-
-**Deprecation** – The deprecation of an API occurs when a breaking change has been introduced. An API released with a breaking change is released as a new version resulting in the previous version being deprecated. Additionally, if an API is being removed from the ecosystem, either from non-use or for some other reason, it will include a deprecation plan. In the case of the non-use of an API, the API may be deprecated immediately.
-
-**How are deprecation plans communicated?**
-
-As much as possible, we will provide notice of a breaking change well before its release. When the new version of an API is released, we provide one year for you to update your applications. The exact amount of notice we provide may vary depending on why the breaking change is necessary. The table below provides insight into our current versions, and if deprecation plans are in place, the anticipated date of deprecation.
-
-[insert Support Timeline tables, future] -->
