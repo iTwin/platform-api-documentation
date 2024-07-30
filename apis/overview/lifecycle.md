@@ -34,13 +34,13 @@ API product releases have a well-defined lifecycle. The release status determine
 
 ![api-lifecycle-diagram](/images/API-Lifecycle-complete.jpg)
 
-### Tech Preview
+### Technical Preview
 
-We may release new APIs, features, and operations as a Tech Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists us in making sure we are providing the right solutions and expected functionality.
+We may release new APIs, features, and operations as a Technical Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists us in making sure we are providing the right solutions and expected functionality.
 
-You may use APIs in Tech Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
+You may use APIs in Technical Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
 
-**Note**: We reserve the right to remove items in Tech Preview from the ecosystem at any time. In which case, we will no longer support them.
+**Note**: We reserve the right to remove items in Technical Preview from the ecosystem at any time. In which case, we will no longer support them.
 
 ### General Availability
 
