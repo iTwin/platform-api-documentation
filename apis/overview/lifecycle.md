@@ -34,13 +34,13 @@ API product releases have a well-defined lifecycle. The release status determine
 
 ![api-lifecycle-diagram](/images/API-Lifecycle-complete.jpg)
 
-### Technical Preview
+### Technology Preview
 
-We may release new APIs, features, and operations as a Technical Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists us in making sure we are providing the right solutions and expected functionality.
+We may release new APIs, features, and operations as a Technology Preview. This allows you to review upcoming capabilities and provide feedback. Additionally, it assists us in making sure we are providing the right solutions and expected functionality.
 
-You may use APIs in Technical Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
+You may use APIs in Technology Preview for free while they are in preview. Do not use these APIs in Production. They are available for testing only, to gather feedback before releasing for General Availability.
 
-**Note**: We reserve the right to remove items in Technical Preview from the ecosystem at any time. In which case, we will no longer support them.
+**Note**: We reserve the right to remove items in Technology Preview from the ecosystem at any time. In which case, we will no longer support them.
 
 ### General Availability
 
@@ -58,12 +58,12 @@ When an API is deprecated, we keep it available for one year, allowing time for 
 
 ## Support Services
 
-| **Technical Preview** | **General Availability**         | **Deprecated**                             | **End Of Support**                |
-| --------------------- | -------------------------------- | ------------------------------------------ | --------------------------------- |
-| **Limited Support**   | **Full Support**                 | **Limited Support**                        | **Upgrade Only**                  |
-| GitHub community      | Bentley support                  | Bentley support (for one year)             | Upgrade to the latest API version |
-| Stack Overflow        | GitHub community                 | Github community                           |                                   |
-| Security updates      | Stack Overflow                   | Security updates                           |                                   |
-| New functionality     | Security updates                 | Maintenance updates (Bentley's discretion) |                                   |
-| Bug fixes             | Maintenance updates              | No enhancements or new functionality       |                                   |
-|                       | New functionality - Non breaking |                                            |                                   |
+| **Technology Preview** | **General Availability**         | **Deprecated**                             | **End Of Support**                |
+| ---------------------- | -------------------------------- | ------------------------------------------ | --------------------------------- |
+| **Limited Support**    | **Full Support**                 | **Limited Support**                        | **Upgrade Only**                  |
+| GitHub community       | Bentley support                  | Bentley support (for one year)             | Upgrade to the latest API version |
+| Stack Overflow         | GitHub community                 | Github community                           |                                   |
+| Security updates       | Stack Overflow                   | Security updates                           |                                   |
+| New functionality      | Security updates                 | Maintenance updates (Bentley's discretion) |                                   |
+| Bug fixes              | Maintenance updates              | No enhancements or new functionality       |                                   |
+|                        | New functionality - Non breaking |                                            |                                   |
