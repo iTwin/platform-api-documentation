@@ -44,20 +44,31 @@ The method of retrieving your access token depends on OAuth 2.0 flow. The author
 
 ### [Authorize a service application](https://developer.bentley.com/tutorials/authorize-service/)
 
-Service applications, also known as two-legged authorization, are designed to access web-hosted resources without user interaction. They operate using the application's identity and run on a server where the source code or configuration is not publicly available. This allows for using a client secret when communicating with the authorization server.
+A service application is an application designed to run as a background service, often providing APIs or other resources to other applications. For authorization documentation, see [Authorize a service application](https://developer.bentley.com/tutorials/authorize-service/). For a tutorial, see [Authorize a service application](https://developer.bentley.com/uiservices/authorize-application/).
 
 ### [Authorize a web application](https://developer.bentley.com/tutorials/authorize-webapp/)
 
-Web applications are built using a server-side framework, which runs on a private server to secure communication with the authorization server. This ensures that the application's source code or configuration remains inaccessible to the public and allows for using a client secret.
+An application built on a server-side framework, accessed through a web browser over a network. For authorization documentation, see [Authorize a web application](https://developer.bentley.com/tutorials/authorize-webapp/). For a tutorial, see [Authorize a web application](https://developer.bentley.com/tutorials/authorize-webapp/)
 
 ### [Authorize a Desktop/Mobile application](https://developer.bentley.com/tutorials/authorize-native/)
 
-For desktop and mobile applications that do not have a dedicated backend server and are public, making it impossible to store a client secret securely. Instead, these applications use Proof Key for Code Exchange (PKCE) to ensure secure access to protected resources.
+An application designed to run natively on a specific operating system or device, providing optimal performance and integration with system features. For authorization documentation, see [Authorize a Desktop/Mobile application](https://developer.bentley.com/tutorials/authorize-native/). For a tutorial, see [Authorize a Desktop/Mobile application](https://developer.bentley.com/tutorials/authorize-native/).
 
 ### [Authorize a Single Page Application (SPA)](https://developer.bentley.com/tutorials/authorize-spa/)
 
-Single Page Applications (SPAs) that are public and lack a dedicated backend server cannot store a client secret securely. To address this, SPAs use Proof Key for Code Exchange (PKCE) to ensure secure access to protected resources.
+A web application that loads a single HTML page and dynamically updates the content as the user interacts with the app, enhancing user experience by avoiding full page reloads. For authorization documentation, see [Authorize a Single Page Application (SPA)](https://developer.bentley.com/tutorials/authorize-spa/). For a tutorial, see [Authorize a Single Page Application (SPA)](https://developer.bentley.com/libraries/authorize-spa/).
 
 ## Refresh Tokens
 
-Access tokens contain an expiry time. In the iTwin Platform, access tokens expire after 3600 seconds, before which you need to request a refresh of the token. When requesting a refresh token, you must include the _offline_access_ scope as part of the authorization request. This scope is added to the request as you would add any other scope in an OAuth request.
+Access tokens have an expiry time. In the iTwin Platform, access tokens expire after 3600 seconds, before which a client needs to request a refresh of the token. Requesting refresh tokens is possible in web and native (desktop/mobile) applications. When requesting a refresh token, you must include the _offline\_access_ scope as part of the authorization request. This scope is added to the request as you would add any other scope in an OAuth request. Tokens are _Bearer_ type, which must be specified in your API calls.
+
+Token endpoint: `POST https://ims.bentley.com/connect/token`
+
+Request parameters:
+
+| Field Name    | Description                                                                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| client_id     | Identification generated during application creation. Found in the [My Apps](/my-apps) page or in the first step if generated during the tutorial.    |
+| client_secret | Secret created during application creation. Only required for a web application.                                                                                                          |
+| grant_type    | Set to `refresh_token` Indicates the type of grant being used. This tells the service you are requesting a new `access_token` with a `refresh_token`. |
+| refresh_token | The refresh token. Ensure the `refresh_token` you include is the same one received from the previous request. |
