@@ -1,0 +1,1 @@
+Delete file from recycle bin

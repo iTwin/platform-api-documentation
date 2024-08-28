@@ -1,0 +1,1 @@
+Get reality data metadata

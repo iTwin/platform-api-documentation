@@ -1,0 +1,1 @@
+Remove iTwin from my favorites
