@@ -2,11 +2,7 @@
 
 Update the specified iTwin group. The `members` and `imsGroups` properties are both capped at 50 each.
 
-### Authentication
-
-Requires `Authorization` header with valid Bearer token for scope `itwin-platform`.
-
-For more documentation on authorization and how to get access token visit [OAUTH2 Authorization](https://developer.bentley.com/apis/overview/authorization/) page.
+{!Authorization.md!}
 
 ### Authorization
 
