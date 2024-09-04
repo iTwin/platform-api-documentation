@@ -1,1 +1,0 @@
-Get iTwin member invitations
