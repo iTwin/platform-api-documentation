@@ -1,0 +1,1 @@
+iModel Connections API is a cloud-based synchronization API meant to synchronize the data in Input Files and iModels. It allows users to establish links from their design files to iModels, hosted in Bentley's iModelHub. Users can synchronize updates to their design files.

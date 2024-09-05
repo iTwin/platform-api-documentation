@@ -1,0 +1,1 @@
+The iTwin Entities Service manages an index of the content repositories of an iTwin. A separate Entity Index is created for each iTwin. The entity index contains Entities for the iTwin. The entities maintian Links to detailed records about the entity in the content repositories.

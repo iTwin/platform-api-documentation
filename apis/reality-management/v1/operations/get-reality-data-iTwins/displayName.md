@@ -1,0 +1,1 @@
+Get all iTwins to which a reality data is associated

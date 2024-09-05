@@ -1,0 +1,1 @@
+Recognize symbols and tags from a raster PnID.

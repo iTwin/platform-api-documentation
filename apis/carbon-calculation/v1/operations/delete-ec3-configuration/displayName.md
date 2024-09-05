@@ -1,0 +1,1 @@
+Delete EC3 Configuration

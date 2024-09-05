@@ -1,0 +1,1 @@
+Retrieve write access to reality data container

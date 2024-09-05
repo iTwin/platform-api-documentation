@@ -1,0 +1,1 @@
+Associate a reality data to a iTwin

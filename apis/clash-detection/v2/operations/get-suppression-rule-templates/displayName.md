@@ -1,0 +1,1 @@
+Get suppression rule templates

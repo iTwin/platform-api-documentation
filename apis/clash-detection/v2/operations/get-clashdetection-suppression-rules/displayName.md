@@ -1,0 +1,1 @@
+Get clash detection suppression rules

@@ -1,0 +1,1 @@
+Get property value validation properties
