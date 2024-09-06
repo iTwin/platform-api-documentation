@@ -1,0 +1,3 @@
+# Named Groups API
+
+Named Groups define subsets of iModel data for downstream applications like Clash Detection or Carbon Analysis. They are scoped at an iTwin and applicable to any iModels storing the same business objects or schema. An example might include selections for materials like concrete and steel when defining Environmental Product Declarations (EPD) workflows. Named Groups can be defined for a specific purpose or shared across workflows. For example, a Named Group defined for the EPD workflow might also apply to generating procurement reports.
