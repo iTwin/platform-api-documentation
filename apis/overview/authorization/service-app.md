@@ -1,4 +1,4 @@
-# Service application
+# Authorize a service application
 
 Service applications are designed to access web-hosted resources without user interaction. They operate using the application's identity and run on a server where the source code or configuration is not publicly available. This setup allows the use of a client secret when communicating with the authorization server. This form of authentication is known as two-legged OAuth, in contrast to three-legged OAuth, which involves user interaction for consent.
 
@@ -39,12 +39,12 @@ The following steps outline how to implement the authorization code flow in your
 `POST https://ims.bentley.com/connect/token`
 
 The authorization request requires the following parameters:
-| **Parameter** | **Description**                                                                                                                                                                                                                                                                              |
+| **Parameter** | **Description** |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| grant_type    | Set to `client_credentials` for service-based applications.                                                                                                                                                                                                                                  |
-| client_id     | The ID of the app you created. If you forgot the ID, find it on the [My Apps](/my-apps/) page. Locate your app in the list. The Client ID is in the same-named column.                                                                                                                       |
-| client_secret | The secret given when you registered the app. If you did not save the client secret, generate a new one. To do so, open the [My Apps](/my-apps/) page and find your app in the list, click the link to open the _Details_ page, and then click **Re-generate** in the _Client Secret_ field. |
-| scope         | Add the `itwin-platform` scope assigned to your app during registration.                                                                                                                                                                                                                     |
+| grant*type | Set to `client_credentials` for service-based applications. |
+| client_id | The ID of the app you created. If you forgot the ID, find it on the [My Apps](/my-apps/) page. Locate your app in the list. The Client ID is in the same-named column. |
+| client_secret | The secret given when you registered the app. If you did not save the client secret, generate a new one. To do so, open the [My Apps](/my-apps/) page and find your app in the list, click the link to open the \_Details* page, and then click **Re-generate** in the _Client Secret_ field. |
+| scope | Add the `itwin-platform` scope assigned to your app during registration. |
 
 2. The authorization server confirms the `client_id` and `client_secret` and returns an access token. Bentley's authorization server completes this step. There is no implementation needed in your application. A successful response includes the access token.
 3. Use the access token to call the API. Remember to call iTwin Platform APIs, you must set up your iTwin roles and permissions. For more information, see the [Access Control API](/apis/access-control/) documentation.
