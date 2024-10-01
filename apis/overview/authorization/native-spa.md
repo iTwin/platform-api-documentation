@@ -9,15 +9,15 @@ Desktop/mobile (native) and single-page applications (SPAs) are public and lack 
 
 Native applications and SPAs can use the OAuth 2.0 Authorization Code Flow to enable data owners to authorize third-party apps to access user data. However, as opposed to [web apps](/tutorials/authorize-webapp), these applications cannot keep a client secret as the entire source is accessible to the public. In order to mitigate this, OAuth 2.0 provides an option for Proof Key for Code Exchange (PKCE) by OAuth Public Clients (see OAuth 2.0 [RFC 7636](https://tools.ietf.org/html/rfc7636)) to securely obtain an authorization code. PKCE allows the calling application to dynamically generate a random, one-time key called a &quot;code verifier&quot; to accomplish this.
 
-Additionally, the calling app creates a transform of the &quot;code verifixer&quot; called the &quot;code challenge&quot; and sends it to the authorization server when obtaining an authorization code. The authorization code obtained is then sent to the token endpoint with the &quot;code verifier &quot;and the server compares it with the previously received request code so that it can perform the proof of the &quot;code verifier&quot; by the client application. This provides a mitigation as the &quot;code verifier&quot; would be unknown to the attacker and cannot be intercepted as it is sent over TLS.
+Additionally, the calling app creates a transform of the &quot;code verifier&quot; called the &quot;code challenge&quot; and sends it to the authorization server when obtaining an authorization code. The authorization code obtained is then sent to the token endpoint with the code verifier and the server compares it with the previously received request code so that it can perform the proof of the code verifier by the client application. This provides a mitigation as the code verifier would be unknown to the attacker and cannot be intercepted as it is sent over TLS.
 
 The following steps provide an overview of this process.
 
-1. The application generates a cryptographically random _code_verifier_ and from this generates a _code_challenge_.
+1. The application generates a cryptographically random `code_verifier` and from this generates a `code_challenge`.
 2. The application makes a request to the authorization server endpoint.
 3. The end-user provides their authentication information and consents for the application to access resources on their behalf.
-4. The authorization server stores the _code_challenge_ and returns an authorization code to the Redirect URI specified when creating the application.
-5. The application uses the authorization code and _code_verifier_ to obtain an access token from the authorization server.
+4. The authorization server stores the `code_challenge` and returns an authorization code to the Redirect URI specified when creating the application.
+5. The application uses the authorization code and `code_verifier` to obtain an access token from the authorization server.
 6. The application uses the access token to call the API on behalf of the user.
 
 <div class="mermaid">
@@ -37,7 +37,7 @@ sequenceDiagram
     as->>as: Validate client_id, code_verifier, code_challenge, scope and redirect_uri
     as->>-app: Granted access token
     app->>-ro: Signed in
-
+    
     ro->>+app: Perform action
     app->>+api: API request with the access token
     api->>-app: API response
@@ -49,7 +49,7 @@ sequenceDiagram
 
 The following steps outline how to implement the authorization code flow in your application. Once you have registered [your app](/my-apps), you can begin to obtain the access token.
 
-1. Generate _code_verifier_ and _code_challenge_. This step needs to be completed within your application. There are several libraries available for generating the code_verifier and code_challenge.
+1. Generate `code_verifier` and `code_challenge`. This step needs to be completed within your application. There are several libraries available for generating the `code_verifier` and `code_challenge`.
 
 2. When the user opens the application, redirect them to the authorization server endpoint. This will provide a login screen to the end user for authentication. After successful authentication, the consent screen is displayed, if the user has not given the consent yet.
 
@@ -57,15 +57,15 @@ The following steps outline how to implement the authorization code flow in your
 
    The request for an authorization code requires the following parameters:
 
-   | Parameter             | Description                                                                                                                                                                                                                                                                                     |
-   | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | response_type         | Set to `code` to indicate that an authorization code is needed.                                                                                                                                                                                                                                 |
-   | client_id             | The ID of the app you created. If you forgot the ID, find it on the [My Apps](/my-apps) page. Locate your app in the list, and the Client ID is in the same-named column.                                                                                                                       |
-   | redirect_uri          | The callback URL you entered when registering your application. The returned authorization code is sent to this URL. In this case, the callback URL must be `https://developer.bentley.com/redirect-tutorial`.                                                                                  |
-   | scope                 | Add the `itwin-platform` scope assigned to your app during registration. When requesting a refresh token, include the scope `offline_access`. Separate multiple scopes with a space. Your end user will consent to the app accessing this information on their behalf during the login process. |
-   | code_challenge        | The code generated from the code_verifier. You can copy the code_challenge from step 1.                                                                                                                                                                                                         |
-   | code_challenge_method | The method used to generate the challenge, we only support S256.                                                                                                                                                                                                                                |
-   | state                 | (Optional) Used by the client to maintain state between a request and a callback. Recommended to prevent cross-site request forgery. The authorization server includes this value when redirecting the user-agent to the client.                                                                |
+   | Parameter               | Description                                                  |
+   | ----------------------- | ------------------------------------------------------------ |
+   | response_type           | Set to `code` to indicate that an authorization code is needed. |
+   | client_id               | The ID of the app you created. If you forgot the ID, find it on the [My Apps](/my-apps) page. Locate your app in the list, and the Client ID is in the same-named column. |
+   | redirect_uri            | The callback URL you entered when registering your application. The returned authorization code is sent to this URL. In this case, the callback URL must be `https://developer.bentley.com/redirect-tutorial`. |
+   | scope                   | Add the `itwin-platform` scope assigned to your app during registration. When requesting a refresh token, include the scope `offline_access`. Separate multiple scopes with a space. Your end user will consent to the app accessing this information on their behalf during the login process. |
+   | code_challenge          | The code generated from the `code_verifier`. You can copy the `code_challenge` from step 1. |
+   | code\_challenge\_method | The method used to generate the challenge, we only support S256. |
+   | state                   | (Optional) Used by the client to maintain state between a request and a callback. Recommended to prevent cross-site request forgery. The authorization server includes this value when redirecting the user-agent to the client. |
 
 3. The user signs in to authenticate and consents for the application to access resources on their behalf. This page is managed by the Bentley authorization server and does not require any implementation in your application.
 
