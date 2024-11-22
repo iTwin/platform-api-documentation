@@ -30,12 +30,13 @@ In your application or service, you may want to be able to gracefully handle a r
 
 When a rate limit is encountered, a [HTTP 429 - Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) response will be returned. In addition to the standard `Retry-After` response header, some additional headers will be added to aid you in understanding why the rate limit occurred. You could, for example, use this information to provide custom messaging in your UI or use it in log messages.
 
-| Header name                                 | Description                                                                            |
-| ------------------------------------------- | -------------------------------------------------------------------------------------- |
-| iTwinPlatform-RateLimit-RemainingCalls      | Number of requests allowed before reaching the rate limit                              |
-| iTwinPlatform-RateLimit-Retry-After-Seconds | After reaching the limit, the number of seconds to wait before retrying the request    |
-| Retry-After                                 | HTTP standard header. Value is the same as that of ITwinPlatform-RateLimit-Retry-After |
-| iTwinPlatform-Tier                          | The name of the subscription used to make the request                                  |
+| Header name                           | Description                                                                                            |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Retry-After                           | HTTP standard header. Value is the amount of seconds for the client to wait until making next request. |
+| ITwinPlatform-RateLimited-Tier        | The name of the application tier that caused the rate limiting                                         |
+| ITwinPlatform-RateLimited-API         | The name of the API that caused the rate limiting                                                      |
+| ITwinPlatform-RateLimited-Operation   | The name of the API operation that caused the rate limiting                                            |
+| ITwinPlatform-RateLimited-Application | The client_id of the application was rate limited                                                      |
 
 ### Rate limited by a service on which the API depends
 
