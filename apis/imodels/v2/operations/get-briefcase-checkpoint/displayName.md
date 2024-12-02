@@ -1,0 +1,1 @@
+Get Briefcase Checkpoint

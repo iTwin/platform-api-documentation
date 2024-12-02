@@ -1,0 +1,8 @@
+---
+
+Delete connection
+
+{!Authorization.md!}
+
+
+---

@@ -1,0 +1,1 @@
+Export API is a cloud-based API meant to export the data from the iModels to other standard formats such as IFC or LandXML. It allows users export data from iModels which are hosted in Bentley's iModelHub to an IFC or LandXML file.

@@ -1,0 +1,1 @@
+Get EC3 Configuration

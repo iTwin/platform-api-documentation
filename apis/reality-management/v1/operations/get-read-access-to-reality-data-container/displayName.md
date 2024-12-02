@@ -1,0 +1,1 @@
+Retrieve read access to reality data container
