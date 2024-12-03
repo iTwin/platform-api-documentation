@@ -20,7 +20,7 @@ The following steps provide an overview of this process.
 5. The application uses the authorization code and `code_verifier` to obtain an access token from the authorization server.
 6. The application uses the access token to call the API on behalf of the user.
 
-<div class="mermaid">
+<pre class="mermaid">
 sequenceDiagram
     participant ro as Resource Owner
     participant app as Application
@@ -43,7 +43,7 @@ sequenceDiagram
     api->>-app: API response
     app->>-ro: Render content
 
-</div>
+</pre>
 
 ## Set up authorization for your app
 
