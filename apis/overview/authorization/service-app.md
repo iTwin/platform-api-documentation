@@ -15,20 +15,20 @@ The following steps provide an overview of the process.
 3. The application uses the access token to call a given API.
 4. The API responds to the request with the requested data when the necessary scopes are included in the token, and the service identity has the proper permissions for that API.
 
-<div class="mermaid">
+<pre class="mermaid">
 sequenceDiagram
-      participant app as Application
-      participant as as Authorization Server
-      participant api as iTwin API
-  
-      app->>+as: Authenticate using client_id and client_secret
-      as->>as: Validate client_id, client_secret and scopes
-      as->>-app: Granted access token
-  
-      app->>+api: API request with the access token
-      api->>-app: API response
+    participant app as Application
+    participant as as Authorization Server
+    participant api as iTwin API
 
-</div>
+    app->>+as: Authenticate using client_id and client_secret
+    as->>as: Validate client_id, client_secret and scopes
+    as->>-app: Granted access token
+
+    app->>+api: API request with the access token
+    api->>-app: API response
+
+</pre>
 
 ## Set up authorization for your app
 
