@@ -7,14 +7,14 @@ Bentley cloud services are used by many applications. We define rate limits and 
 
 ## Rate limits - general
 
-In most cases, rate limits are determined by the iTwin Platform subscription associated with the OAuth client that the client application is using. Please also note that in addition to a rate limit, Trial subscriptions also have a cap of 5000 calls per hour.
+In most cases, rate limits are determined by the iTwin Platform subscription associated with the OAuth client that the client application is using. Please also note that in addition to a rate limit, Community subscriptions also have a cap of 5000 calls per hour.
 
 **Rate limits by subscription**:
 
 | Subscription tier | Number of requests | per time period |
 | ----------------- | :----------------: | :-------------: |
-| Trial             |        500         |     minute      |
-| Basic             |        5000        |     minute      |
+| Community         |        500         |     minute      |
+| Standard          |        5000        |     minute      |
 | Premium           |        5000        |     minute      |
 | Custom            |        5000        |     minute      |
 
