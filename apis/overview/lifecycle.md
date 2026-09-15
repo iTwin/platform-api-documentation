@@ -5,7 +5,7 @@
 
 ## API versions
 
-We version all APIs and embeds the version number in the **Accept** header as shown below.
+We version all APIs and embed the version number in the **Accept** header as shown below.
 
 ```HTTP
 GET https://api.bentley.com/users/me HTTP/1.1
